@@ -1,0 +1,3 @@
+SKU,Quantity,Price,Description 
+4039,1,0.99,SODA
+9100,1,9.99,T-SHIRT

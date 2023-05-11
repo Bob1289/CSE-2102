@@ -1,0 +1,7 @@
+Show_id,Type,Title,Director,Country,Release_year,Rating,Duration,Genre
+s1,Movie,Dick Johnson Is Dead,[Kirsten Johnson],[United States],2020,PG-13,90,[Documentaries]
+s2,TV Show,Blood & Water,[],[South Africa],2021,TV-MA,2,[International TV Shows, TV Dramas, TV Mysteries]
+s3,TV Show,Ganglands,[Julien Leclercq],[],2021,TV-MA,1,[Crime TV Shows, International TV Shows, TV Action, Adventure]
+s4,TV Show,Jailbirds New Orleans,[],[],2021,TV-MA,1,[Docuseries, Reality TV]
+s5,TV Show,Kota Factory,[],[India],2021,TV-MA,2,[International TV Shows, Romantic TV Shows, TV Comedies]
+s7,Movie,My Little Pony: A New Generation,[Robert Cullen, José Luis Ucha],[],2021,PG,91,[Children, Family Movies]

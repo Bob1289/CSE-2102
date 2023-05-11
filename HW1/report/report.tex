@@ -1,0 +1,183 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Homework 1}
+\author{Benny Chen}
+\date{\today}
+ 
+\usepackage{color}
+\usepackage{amsthm}
+\usepackage{amssymb} 
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{courier} 
+
+\lstset{
+tabsize = 4, %% set tab space width
+showstringspaces = false, %% prevent space marking in strings, string is defined as the text that is generally printed directly to the console
+numbers = left, %% display line numbers on the left
+commentstyle = \color{green}, %% set comment color
+keywordstyle = \color{blue}, %% set keyword color
+stringstyle = \color{red}, %% set string color
+rulecolor = \color{black}, %% set frame color to avoid being affected by text color
+basicstyle = \small \ttfamily , %% set listing font and size
+breaklines = true, %% enable line breaking
+numberstyle = \tiny,
+}
+
+\begin{document}
+
+\maketitle
+
+\section{Problem A}
+
+\subsection*{A.1}
+
+\begin{lstlisting}[language = Java , frame = trBL , firstnumber = last , escapeinside={(*@}{@*)}]
+//AreafromCircumference.java
+//This program takes in the circumference(INPUT) and calculates the area of a circle(OUTPUT)
+
+public class AreafromCircumference{
+    public static void main(String[] args){
+        //Set the value of pi to 22/7
+        double pi = 22/7; 
+
+        //Set the value of circumference to the input
+        double circumference = Double.parseDouble(args[0]); 
+
+        //Calculate the area of the circle
+        double area = (circumference * circumference) / (4 * pi); 
+        
+        //Print the area of the circle
+        System.out.printf("Area of circle is: %.2f\n", area); 
+    }
+}
+\end{lstlisting}
+
+\subsection*{Test Cases}
+
+\begin{center}
+    \includegraphics*[scale = .65]{./images/q1test.png}
+\end{center}
+
+\subsection*{A.2}
+
+Can $\pi$ be encoded as “static final” in the code? Why or why not? Justify your answer.
+\\
+Yes, it can be encoded as "static final" in the code mainly due to the fact that we use $22/7$ as our approximation of $\pi$ and it will be a constant value that will not change throughout the program.
+We would have to write is as 
+\begin{lstlisting}[language = Java , frame = trBL , firstnumber = last , escapeinside={(*@}{@*)}]
+static final double pi = 22.0 / 7.0; 
+\end{lstlisting}
+
+\section{Problem B}
+
+\begin{lstlisting}[language = Java , frame = trBL , firstnumber = last , escapeinside={(*@}{@*)}]
+// VendingChange.java
+// This program takes in the amount of an item(INPUT) and calculates the change of $1 in the amount of quarters, dimes, and nickels(OUTPUT)
+
+public class VendingChange {
+    public static void main(String[] args){
+        //Set the value of item to the input
+        int item = Integer.parseInt(args[0]); 
+
+        //Calculate the change
+        int change = 100 - item; 
+
+        //Calculate the amount of quarters
+        int quarters = change / 25; 
+
+        //Calculate the amount of dimes
+        int dimes = (change % 25) / 10; 
+
+        //Calculate the amount of nickels
+        int nickels = ((change % 25) % 10) / 5; 
+
+        //Print the change
+        System.out.printf("You bought a item for %d cents and gave me a dollar, so your change is \n%d quarters, \n%d dimes, and \n%d nickels\n", item, quarters, dimes, nickels); 
+    }       
+}
+    
+\end{lstlisting}
+
+\subsection*{Test Cases}
+
+\begin{center}
+    \includegraphics*[scale = .65]{./images/q2test.png}
+\end{center}
+
+\section{Problem C}
+
+\begin{lstlisting}[language = Java , frame = trBL , firstnumber = last , escapeinside={(*@}{@*)}]
+// OperatorPrecedence.java
+// This program takes in 3 numbers(INPUT) and uses them in a equation to calculate the cube root of a number(OUTPUT)
+
+public class OperatorPrecedence {
+    public static void main(String[] args){
+        //Set the value of x to the first input
+        double x = Double.parseDouble(args[0]);
+
+        //Set the value of y to the second input
+        double y = Double.parseDouble(args[1]); 
+        
+        //Set the value of z to the third input
+        double z = Double.parseDouble(args[2]); 
+        
+        //Plugs in values into equation then cubes it
+        double answer = Math.cbrt(Math.pow(x, 2) + Math.pow(y, 2) - Math.abs(z)); 
+
+        //Print the cube root
+        System.out.printf("Cube Root is: %.2f\n", answer); 
+    }
+}
+\end{lstlisting}
+
+\subsection*{Test Cases}
+
+\begin{center}
+    \includegraphics*[scale = .65]{./images/q3test.png}
+\end{center}
+
+\section{Problem D}
+
+\subsection*{D.1}
+
+The problem the orginal code had was that only $m_2$ was being divided and not the whole $G * m_1 * m_2$ equation. By adding in parantheses, we can now divide the whole $G * m_1 * m_2$ equation by $r * r$.
+
+\subsection*{D.2}
+
+\begin{lstlisting}[language = Java , frame = trBL , firstnumber = last , escapeinside={(*@}{@*)}]
+// Force.java
+// This program takes in the mass of 2 objects(INPUT) and distance between centers of the masses(INPUT) and calculates the force(OUTPUT)
+
+public class Force {
+    public static void main(String[] args){
+        //Set the value of m1 to the first input of mass
+        double m1 = Double.parseDouble(args[0]); 
+
+        //Set the value of m2 to the second input of mass
+        double m2 = Double.parseDouble(args[1]); 
+
+        //Set the value of r to the input of distance between centers of the masses
+        double r = Double.parseDouble(args[2]); 
+
+        //Calculate the force
+        double force = (6.67 * Math.pow(10, -11)) * ((m1 * m2) / Math.pow(r, 2)); 
+
+        //Print the force
+        System.out.printf("Force is: %.2f\n", force); 
+    }
+}   
+\end{lstlisting}
+
+\subsection*{Test Cases}
+
+\begin{center}
+    \includegraphics*[scale = .65]{./images/q4test.png}
+\end{center}
+
+\end{document}
